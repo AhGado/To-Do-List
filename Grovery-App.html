@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="dedicatedStyles.css">
+
+<script src="https://unpkg.com/vue@3"></script>
+
+<span class="clear"></span>
+<div id="app">
+    <div id="AppTitle">{{message}}</div>
+    <button v-on:click.prevent="addItem">Add item</button>
+    <ul>
+        <form id="form">
+            <input v-model="itemInput" type="text" id="itemInput" autocomplete="off" maxlength="20" autofocus placeholder="Type something...">
+            <p>{{itemMsg}}</p>
+            <button id="clearList" @click.prevent="clearList">Clear List</button>
+        </form>
+        <li v-for="item in items" v-bind:key="item.id">
+            <label
+                :style="{ color: item.checked ? 'grey' : '', textDecoration: item.checked ? 'line-through': 'none, background-'}">
+                {{item.name}} <input type="checkbox" v-model="item.checked"> </label>
+            </li>
+    </ul>
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                message: "To-Do List",
+                itemInput: '',
+                items: [],
+            }
+        },
+        computed: {
+            itemMsg() {
+                if (this.items.length === 1) {
+                    return `${this.totalItems} item in this list`
+                }
+                if (this.items.length === 0) {
+                    return `${this.totalItems} Add an item`
+                }
+                return `${this.totalItems} items in this list`
+            },
+            totalItems() {
+                return this.items.length
+            }
+        },
+        methods: {
+            addItem() {
+                if (this.itemInput.match(/^ *$/) !== null) {
+                    this.itemInput = '';
+                    document.getElementById("itemInput").focus();
+                }
+                else {
+
+                    this.items.push({
+                        id: Math.random(),
+                        name: this.itemInput,
+                        checked: false
+                    })
+
+                    
+                    this.itemInput = ''
+                    document.getElementById("itemInput").focus();
+                    $("#id").css("background", "black")
+                }
+            },
+            clearList() {
+                this.items.length = 0;
+            }
+        }
+    }).mount('#app')
+</script>

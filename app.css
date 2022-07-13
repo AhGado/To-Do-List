@@ -1,0 +1,90 @@
+:root {
+  --first-color: rgb(20, 20, 20);
+  --second-color: rgb(255, 0, 43);
+  --third-color: rgb(255, 255, 255);
+  --fourth-color: rgb(0, 0, 0);
+  --light-color: white;
+  --dark-color: black;
+  font-family: cursive;
+  font-weight: bold;
+}
+* {
+  transition: 0.2s;
+}
+body {
+  color: white;
+  text-align: center;
+  background: black;
+  padding: 2%;
+}
+body div {
+  margin: 2%;
+  padding: 2%;
+  background: rgb(45, 45, 45);
+}
+input {
+  float: left;
+  background: black;
+  color: white;
+  border: 1px double black;
+  padding: 1%;
+  border-radius: 3px;
+}
+input:focus {
+  border: 1px var(--third-color) ridge;
+  background: white;
+  color: black;
+  border-radius: 0;
+  font-weight: bold;
+}
+input[type="checkbox"] {
+  float: right;
+}
+button {
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(41, 41, 41);
+  color: white;
+  height: auto;
+  width: 30%;
+  border-radius: 2px;
+  padding: 1%;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: rgb(70, 70, 70);
+}
+button:active {
+  transition: 0.05s;
+  transform: scale(1);
+  background: rgb(30, 30, 30);
+}
+ul {
+  list-style: none;
+}
+li {
+  border: ridge 0.3vw var(--theme-color);
+  margin: 1%;
+  border-radius: 2px;
+  text-align: center;
+  min-width: 15%;
+  float: left;
+  padding: 1%;
+}
+ul li:nth-child(odd) {
+  --theme-color: var(--dark-color);
+  color: var(--light-color);
+  background: var(--fourth-color);
+}
+ul li:nth-child(even) {
+  --theme-color: var(--dark-color);
+  color: var(--dark-color);
+  background: var(--third-color);
+}
+
+ul li label:hover {
+  cursor: pointer;
+}
+:-webkit-any(input[type="checkbox"]) {
+  background: black;
+}

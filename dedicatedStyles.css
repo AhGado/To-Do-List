@@ -1,0 +1,26 @@
+#app {
+  min-height: 80vh;
+  height: auto;
+  max-width: 50%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1%;
+  overflow: auto;
+}
+#AppTitle {
+  border-radius: 5px;
+  border: 2px solid black;
+  background: black;
+  color: white;
+  font-size: 200%;
+  font-family: cursive;
+  font-weight: bolder;
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 5%;
+  box-shadow: inset 0px 0px 5px 5px black;
+}
+#form * {
+  display: inline-block;
+  margin: 1%;
+}
